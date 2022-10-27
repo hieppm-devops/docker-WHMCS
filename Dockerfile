@@ -1,4 +1,4 @@
-FROM php:7.3.28-fpm
+FROM php:7.4-fpm
 
 # Install extensions
 RUN set -xe \
@@ -45,8 +45,8 @@ RUN curl -sS https://raw.githubusercontent.com/php/php-src/master/php.ini-produc
 ADD https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz /tmp/
 RUN tar xvzfC /tmp/ioncube_loaders_lin_x86-64.tar.gz /tmp/ && \
 	php_ext_dir="$(php -i | grep extension_dir | head -n1 | awk '{print $3}')" && \
-	mv /tmp/ioncube/ioncube_loader_lin_7.3.so "${php_ext_dir}/" && \
-    echo "zend_extension = $php_ext_dir/ioncube_loader_lin_7.3.so" \
+	mv /tmp/ioncube/ioncube_loader_lin_7.4.so "${php_ext_dir}/" && \
+    echo "zend_extension = $php_ext_dir/ioncube_loader_lin_7.4.so" \
         > /usr/local/etc/php/conf.d/00-ioncube.ini && \
 	rm /tmp/ioncube_loaders_lin_x86-64.tar.gz && \
 	rm -rf /tmp/ioncube
