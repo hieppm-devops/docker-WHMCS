@@ -2,7 +2,7 @@ version: "3"
 
 services:
   whmcs:
-    image: fireant456/whmcs
+    image: sonoransoftware/whmcs
     depends_on:
       - mysql
     volumes:

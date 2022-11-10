@@ -4,7 +4,7 @@
 [![Docker Stars](https://img.shields.io/docker/stars/sonoransoftware/whmcs.svg)](https://hub.docker.com/r/sonoransoftware/whmcs/)
 [![Docker Build Status](https://img.shields.io/github/workflow/status/Sonoran-Software/docker-whmcs/Publish%20Sonoran%20Software%20Docker%20image)](https://hub.docker.com/r/sonoransoftware/whmcs/)
 
-Latest offical v7.4 [PHP-FPM](https://hub.docker.com/_/php/) container configured with basic extensions and [production settings](https://github.com/php/php-src/blob/master/php.ini-production). Includes [ionCube Loader](https://www.ioncube.com/loaders.php) php extension as required for WHMCS.
+Latest offical v8.1 [PHP-FPM](https://hub.docker.com/_/php/) container configured with basic extensions and [production settings](https://github.com/php/php-src/blob/master/php.ini-production). Includes [ionCube Loader](https://www.ioncube.com/loaders.php) php extension as required for WHMCS.
 
 ## Changes to offical container
 
