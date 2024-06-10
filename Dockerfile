@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:8.1-apache
 
 # Install necessary PHP extensions and utilities
 RUN apt-get update && apt-get install -y \
@@ -23,23 +23,23 @@ RUN a2enmod rewrite
 # Download and install ionCube Loader
 RUN wget https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz \
     && tar -xvf ioncube_loaders_lin_x86-64.tar.gz \
-    && mv ioncube/ioncube_loader_lin_7.4.so /usr/local/lib/php/extensions/no-debug-non-zts-20190902/ \
+    && mv ioncube/ioncube_loader_lin_8.1.so /usr/local/lib/php/extensions/no-debug-non-zts-20190902/ \
     && rm -rf ioncube*
 
 # Verify the ionCube Loader file exists
-RUN ls -l /usr/local/lib/php/extensions/no-debug-non-zts-20190902/ioncube_loader_lin_7.4.so
+RUN ls -l /usr/local/lib/php/extensions/no-debug-non-zts-20190902/ioncube_loader_lin_8.1.so
 
 # Set the LD_LIBRARY_PATH environment variable
 # ENV LD_LIBRARY_PATH=/usr/local/lib/php/extensions/no-debug-non-zts-20190902:$LD_LIBRARY_PATH
 
 # Create ionCube configuration file
-RUN echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20190902/ioncube_loader_lin_7.4.so" > /usr/local/etc/php/conf.d/00-ioncube.ini
+RUN echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20190902/ioncube_loader_lin_8.1.so" > /usr/local/etc/php/conf.d/00-ioncube.ini
 
 # Set the working directory
 WORKDIR /var/www/html
 
 # Copy WHMCS files
-# COPY . /var/www/html/
+COPY . /var/www/html/
 
 # Set permissions
 RUN chown -R www-data:www-data .
