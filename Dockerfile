@@ -54,9 +54,6 @@ RUN tar xvzfC /tmp/ioncube_loaders_lin_x86-64.tar.gz /tmp/ && \
     rm /tmp/ioncube_loaders_lin_x86-64.tar.gz && \
     rm -rf /tmp/ioncube
 
-# Verify the ionCube Loader file exists
-RUN ls -l "$php_ext_dir/ioncube_loader_lin_8.1.so"
-
 # Set the working directory
 WORKDIR /var/www/html
 
